@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<%= render 'shared/title', title: 'Who is Admins?' %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <!-- <th>Password</th> -->
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admins.each do |admin| %>
+      <tr>
+        <td><%= admin.name %></td>
+        <!-- <td><%#= admin.password_digest %></td> -->
+
+        
+        <td>
+          <%= link_to 'Show', 
+              admin_path(admin)
+          %>
+        </td> 
+
+        <!-- from here to add front-end judgement -->
+        <% if admin_logged_in? %>
+          <td>
+          <%= link_to 'Update',
+              edit_admin_path(admin) 
+          %>     
+          </td>
+
+
+          <!-- method delete分辨出不同 -->
+          <td>
+            <%= link_to 'Destroy',
+                admin_path(admin),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } 
+            %> 
+          </td>
+        <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+
+
+
+
+
+
+
