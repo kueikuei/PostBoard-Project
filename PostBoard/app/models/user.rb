@@ -1,33 +1,27 @@
 class User < ActiveRecord::Base
 	###User
 	# Tom,1111
-	# Jason,2222
-
-
+	# Jason,22223
 
 	has_many :posts
 	has_many :comments
 
 	has_secure_password validation: false
 	
+	# presence
+	validates :name, presence: true
+	# validates :password_digest, presence: true
 
+	# length
 
-	# # presence
-	# validates :name, presence: true
-	# validates :password, presence: true
+	validates :name, length: { minimum: 2 }
+	validates :name, length: { maximum: 200 }
 
-	# # length
+	# validates :password_digest, length: { minimum: 4 }
+	# validates :password_digest, length: { maximum: 10 }
 
-	# validates :name, length: { minimum: 2 }
-	# validates :name, length: { maximum: 200 }
+	# unique
+	validates :name, uniqueness: true
+	# validates :password_digest, uniqueness: true
 
-	# validates :password, length: { minimum: 10 }
-	# validates :password, length: { maximum: 10 }
-
-	# # unique
-	# validates :name, uniqueness: true
-	# validates :password, uniqueness: true
-
-
-	
 end

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-	#admin
+	#### admin
 	#resources :admins
 	get 'admins', to: 'admins#index'
 	get 'admins/:id', to: 'admins#show', :as => "admin"
@@ -15,5 +15,15 @@ Rails.application.routes.draw do
 	get 'login', to: 'admins#login'
 	post 'login', to: 'admins#login_create'
 	get 'logout', to: 'admins#logout_destroy'
-	# get 'admins/login', to: 'admins#new', :as => "meetings"
+	# -------------------
+	#### user
+	resources :users
+	# match ':users(/:destroy(/:id(.:format)))', via: [:delete]
+	match 'users/:id',   :to => 'users#destroy',  :via => 'delete'
+	# delete 'users/:id', to: 'users#fuck', :as => "user_fuck"
+	# login
+	get 'login/users', to: 'users#login', :as => "user_login"
+	post 'login/users', to: 'users#login_create'
+	get 'logout/users', to: 'users#logout_destroy'
+
 end

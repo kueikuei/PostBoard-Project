@@ -1,7 +1,5 @@
 <div class='well'>
 
-
-
 <!-- form_for方法用於產生一個form表單 -->
 <%= form_for(@admin) do |f| %>
 
@@ -21,16 +19,16 @@
   <div class="field">
     <%= f.label :name %>
     <!-- 丟參數概念定義class -->
-    <%= f.text_field :name, class: "form-control" %>
+    <%= f.text_field :name %>
   </div>
   <br>
 
   <div class="field">
-    <%= f.label :password_digest %>
-    <%= f.text_field :password_digest %>
+    <%= f.label :password %>
+    <%= f.text_field :password%>
   </div>
   <br>
-
+  
   <div class="actions">
     <%= f.submit %>
   </div>

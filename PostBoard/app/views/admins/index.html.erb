@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
-
 <%= render 'shared/title', title: 'Who is Admins?' %>
 
 <table>
@@ -29,7 +27,7 @@
         <!-- from here to add front-end judgement -->
         <% if admin_logged_in? %>
           <td>
-          <%= link_to 'Update',
+          <%= link_to 'Edit',
               edit_admin_path(admin) 
           %>     
           </td>
@@ -37,7 +35,7 @@
 
           <!-- method delete分辨出不同 -->
           <td>
-            <%= link_to 'Destroy',
+            <%= link_to 'Delete',
                 admin_path(admin),
                 method: :delete,
                 data: { confirm: 'Are you sure?' } 

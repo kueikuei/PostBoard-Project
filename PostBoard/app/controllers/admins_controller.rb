@@ -101,7 +101,7 @@ class AdminsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_params
       # binding.pry
-      params.require(:admin).permit(:name, :password_digest)
+      params.require(:admin).permit(:name, :password)
     end
 
 end

@@ -11,7 +11,7 @@
 
 				<% if admin_logged_in? %>
 					<li>	
-						<%= link_to '登出',
+						<%= link_to '管理員登出',
 							logout_path 
 						%>	
 					</li>
@@ -19,6 +19,25 @@
 					<li>
 						<%= link_to '管理員登入',
 						 	login_path 
+						 %>
+					</li>	
+				<%  end %>
+
+				<% if user_logged_in? %>
+					<li>	
+						<%= link_to '使用者登出',
+							logout_users_path 
+						%>	
+					</li>
+				<% else %>
+					<li>
+						<%= link_to '使用者登入',
+						 	user_login_path 
+						 %>
+					</li>
+					<li>
+						 <%= link_to '使用者註冊',
+						 	new_user_path
 						 %>
 					</li>	
 				<%  end %>

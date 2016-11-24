@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'shared/title', title: 'Welcome all User' %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <!-- <th>Password</th> -->
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <!-- 後續可以考慮拿掉 -->
+        <td><%= user.email %></td>
+        <td><%= user.phone %></td>
+        
+        
+
+        <!-- from here to add front-end judgement -->
+        <% if user_logged_in? %>
+          <td>
+            <%= link_to 'Show', 
+                user_path(user)
+            %>
+          </td> 
+
+          <td>
+          <%= link_to 'Edit',
+              edit_user_path(user) 
+          %>     
+          </td>
+
+
+          <!-- method delete分辨出不同 -->
+          <td>
+          <%= link_to 'Destroy', user_path(user),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } 
+          %>
+          </td>
+      
+        <%end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+
+
+
+
+
+
+
