@@ -27,9 +27,13 @@ Rails.application.routes.draw do
 	get 'logout/users', to: 'users#logout_destroy'
 	# -------------------
 	#### post
-	resources :posts do
-		#### comments
-		resources :comments
-	end
+	# resources :posts do
+	# 	#### comments
+	# 	resources :comments
+	# end
+	resources :posts
+
+	#### comments
+	resources :comments
 
 end
