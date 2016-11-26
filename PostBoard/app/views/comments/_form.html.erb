@@ -1,0 +1,52 @@
+<div id="footer" class="wrapper style2">
+      <div class="container">
+        <section>
+          <header class="major">
+            <h2>Any Comment want to say？</h2>
+            <span class="byline">Come on！Share everyone right now</span>
+          </header>
+			
+		  <%#= form_for(@post) do |f| %>	
+          <%= form_for(@comment) do |f| %>
+ 
+            <div class="row half">
+              <div class="12u">
+              <%= f.label :reply %>
+              <%= f.text_field :reply %>
+                <!-- <input class="text" type="text" name="name" id="name" placeholder="Title" /> -->
+              </div>
+            </div>
+
+            <div class="row half">
+              <div class="12u">
+              <%= f.label 'which Post ID?' %>
+              <%= f.text_field :post_id %>
+                <!-- <input class="text" type="text" name="name" id="name" placeholder="Title" /> -->
+              </div>
+            </div>
+
+    
+            <!-- <div class="row half">
+              <div class="12u"> -->
+              <%#= f.label 'who u r' %>
+              <%#= f.text_field :user_id  %>
+                <!-- <input class="text" type="text" name="name" id="name" placeholder="Title" /> -->
+              <!-- </div> -->
+            <!-- </div> -->
+
+            <div class="row half">
+              <div class="12u">
+                <ul class="actions">
+                  <li>
+                    <%= f.submit  %>
+                    <!-- <input type="submit" value="comment" class="button alt" /> -->
+                  </li>
+                </ul>
+              </div>
+            </div>
+          <!-- </form> -->
+          <% end %>
+
+        </section>
+      </div>
+    </div>
