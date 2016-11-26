@@ -35,6 +35,8 @@
 </div>
 
 <!-- foot bar -->
+<% if user_logged_in?%>
+
 <div id="footer" class="wrapper style2">
       <div class="container">
         <section>
@@ -57,7 +59,35 @@
 
         </section>
       </div>
-    </div>
+</div>
+
+<% else %>
+
+<div id="footer" class="wrapper style2">
+      <div class="container">
+        <section>
+          <header class="major">
+            <h2>Any StoneAge Information want to say？</h2>
+            <span class="byline">Come on！Share everyone right now</span>
+          </header>
+
+          
+            <div class="row half">
+              <div class="12u">
+                <ul class="actions">
+                  <li>
+                    <%= button_to 'User Login', user_login_path, method: :get 
+                    %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+        </section>
+      </div>
+</div>
+
+<% end %>
 
 
 
