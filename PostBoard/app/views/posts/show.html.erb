@@ -1,0 +1,38 @@
+<!-- post -->
+<p>
+   <h2><%= @post.title %></h2><br>
+   <h4 style="color:#FF8888;">You are viewing <%= @post.title %></h4>
+   <div style="background-color:#FF8888;">
+   	<h5><%= @post.content %><h5><br>
+   	<h5><span style="color:#444444;">post by</span> <%= @post.user.name %><h5>
+   </div><br>
+
+
+
+</p>
+
+<!-- comment -->
+<h4 style="color:#FFDDAA;">Comment Here</h4>
+<p>
+	<% @comments.each do |comment| %>
+	   <div style="background-color:#FFDDAA;">
+		   	<h5><%= comment.reply %><h5><br>
+		   	<h5><span style="color:#444444;">comment by</span> <%= comment.user.name%><h5> 
+	   </div><br>
+	<% end %>
+
+</p>
+
+<!-- 加入管理者照片 -->
+
+<%#= link_to 'Edit', edit_post_path(@post) %>
+<%= link_to 'New Comment', new_post_comment_path(@comment) %>
+<%= link_to 'Back', posts_path %>
+<%= link_to 'Edit', edit_post_path %>
+<%= link_to 'Delete', posts_path(@post.id),
+	method: :delete,
+    data: { confirm: 'Are you sure?' } 
+%>
+
+
+

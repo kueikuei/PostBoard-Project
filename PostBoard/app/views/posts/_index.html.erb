@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'shared/title', title: 'All Post at Here' %>
+
+
+
+<!-- Body Post -->
+
+<div id="extra">
+  <div class="container">
+    <div class="row no-collapse-1">
+      <% @posts.each do |post| %>
+        <section class="4u"> 
+          <a href="#" class="image featured">
+            <%= image_tag("pic0"+[1,2,3,4,5,6].shuffle[1].to_s+".jpg") %>
+          </a>
+          <div class="box">
+            <p>
+              <h1><%= post.title %></h1><br>
+                  <%= post.content %>
+            </p>
+            <!-- 連結到個別post的button -->
+            <%= button_to 'Read More', post_path(post), method: :get 
+            %>
+            <!-- <a href="#" class="button">Read More</a>  -->
+          </div>
+        </section>
+      <% end %>
+    </div>
+  </div>
+</div>

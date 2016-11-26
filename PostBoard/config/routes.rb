@@ -25,5 +25,11 @@ Rails.application.routes.draw do
 	get 'login/users', to: 'users#login', :as => "user_login"
 	post 'login/users', to: 'users#login_create'
 	get 'logout/users', to: 'users#logout_destroy'
+	# -------------------
+	#### post
+	resources :posts do
+		#### comments
+		resources :comments
+	end
 
 end

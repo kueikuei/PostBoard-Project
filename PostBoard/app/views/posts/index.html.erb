@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'shared/title', title: 'All Post at Here' %>
+
+
+
+<!-- Body Post -->
+
+<div id="extra">
+  <div class="container">
+    <div class="row no-collapse-1">
+      <% @posts.each do |post| %>
+        <section class="4u"> 
+          <a href="#" class="image featured">
+            <%= image_tag("pic0"+[1,2,3,4,5,6].shuffle[1].to_s+".jpg") %>
+          </a>
+          <div class="box">
+            <p>
+              <h1><%= post.title %></h1><br>
+                  <%= post.content %>
+            </p>
+            <!-- 連結到個別post的button -->
+            <%= button_to 'Read More', post_path(post), method: :get 
+            %>
+            <!-- post_path(post,comment) -->
+            <%#= button_to 'Read More', post_comment_path(post), method: :get 
+            %>
+            <!-- <a href="#" class="button">Read More</a>  -->
+          </div>
+        </section>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- foot bar -->
+<div id="footer" class="wrapper style2">
+      <div class="container">
+        <section>
+          <header class="major">
+            <h2>Any StoneAge Information want to say？</h2>
+            <span class="byline">Come on！Share everyone right now</span>
+          </header>
+
+          
+            <div class="row half">
+              <div class="12u">
+                <ul class="actions">
+                  <li>
+                    <%= button_to 'Create Post', new_post_path, method: :get 
+                    %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+        </section>
+      </div>
+    </div>
+
+
+
+
+
+
+
